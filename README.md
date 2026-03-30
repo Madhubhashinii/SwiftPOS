@@ -38,7 +38,7 @@
 - [User Roles](#-user-roles)
 - [Pages & Modules](#-pages--modules)
 - [CSS Architecture](#-css-architecture)
-- [Team](#-team)
+
 
 ---
 
