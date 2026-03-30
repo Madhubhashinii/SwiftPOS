@@ -286,6 +286,24 @@ Every page loads `style.css` as the foundation, then imports its scoped styleshe
 
 ---
 
+## 🛠 Project Interfaces
+<img width="1842" height="895" alt="login" src="https://github.com/user-attachments/assets/638c8934-a074-47af-97ff-2a5556f8ff24" />
+
+<img width="1876" height="890" alt="dashboard" src="https://github.com/user-attachments/assets/5de2f110-ddf0-44b2-bad4-1c12f7c091ef" />
+<img width="1858" height="881" alt="users" src="https://github.com/user-attachments/assets/dde18881-662a-48a9-b8d7-8ae5f6d68b2e" />
+
+<img width="1886" height="838" alt="products" src="https://github.com/user-attachments/assets/b4db2629-7929-40f8-ba1f-90e46c1206a3" />
+
+<img width="1876" height="876" alt="categories" src="https://github.com/user-attachments/assets/44e2b003-5b75-4288-b9a9-73329a2e4f5b" />
+
+<img width="1903" height="887" alt="sales" src="https://github.com/user-attachments/assets/0cecb7c1-843a-454f-82dc-ffa2fd79b7da" />
+
+
+
+
+---
+
+
 ## 👨‍💻 Team
 
 | Name | Role |
