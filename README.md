@@ -36,8 +36,7 @@
 - [Overview](#-overview)
 - [Features](#-features)
 - [User Roles](#-user-roles)
-- [Pages & Modules](#-pages--modules)
-- [CSS Architecture](#-css-architecture)
+
 
 
 ---
@@ -77,43 +76,6 @@ Built on a clean **MVC architecture** with JSP views, Servlet controllers, DAO-p
 
 ---
 
-## 📄 Pages & Modules
-
-| JSP Page | Description | CSS Used |
-|----------|-------------|----------|
-| `login.jsp` | Animated login screen | `style.css` + `login.css` |
-| `admin_dashboard.jsp` | Stats widgets, quick actions | `style.css` + `dashboard.css` |
-| `users.jsp` | User management with tables | `style.css` + `users.css` |
-| `products.jsp` | Inventory management & forms | `style.css` + `form.css` |
-| `categories.jsp` | Category organization | `style.css` + `form.css` |
-| `sales.jsp` | POS cart interface | `style.css` + `form.css` |
-| `receipt.jsp` | Printable transaction receipt | `style.css` + `receipt.css` |
-| `reports.jsp` | Charts, filters, data table | `style.css` + `report.css` |
-| `about.jsp` | Project & team info | `style.css` + `about-help.css` |
-| `help.jsp` | User guide & FAQs | `style.css` + `about-help.css` |
-| `error.jsp` | Friendly error with redirect | `style.css` + `error.css` |
-
----
-
-## 🎨 CSS Architecture
-
-SwiftPOS uses a **modular, scoped stylesheet system**:
-
-```
-style.css  ← Global base (typography, variables, shared components)
-    │
-    ├── login.css       ← Auth page only
-    ├── dashboard.css   ← Admin dashboard only
-    ├── form.css        ← Shared across product/category/sales forms
-    ├── receipt.css     ← Print-optimized receipt layout
-    ├── report.css      ← Charts and data tables
-    ├── users.css       ← User management tables
-    └── about-help.css  ← Info and documentation pages
-```
-
-Every page loads `style.css` as the foundation, then imports its scoped stylesheet to add or override styles only where needed. This avoids duplication and keeps the codebase clean as the project grows.
-
----
 
 ## 🛠 Project Interfaces
 <img width="1842" height="895" alt="login" src="https://github.com/user-attachments/assets/638c8934-a074-47af-97ff-2a5556f8ff24" />
