@@ -75,16 +75,6 @@ Built on a clean **MVC architecture** with JSP views, Servlet controllers, DAO-p
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-Make sure you have the following installed:
-
-- ✅ [XAMPP](https://www.apachefriends.org/) (Apache + MySQL)
-- ✅ [Apache Tomcat 10+](https://tomcat.apache.org/)
-- ✅ [NetBeans IDE](https://netbeans.apache.org/) *(recommended)* or any Java IDE
-- ✅ JDK 11 or higher
-
----
 
 ### Database Setup
 
