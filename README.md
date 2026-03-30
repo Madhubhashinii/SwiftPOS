@@ -35,12 +35,6 @@
 
 - [Overview](#-overview)
 - [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Database Setup](#database-setup)
-  - [Running the App](#running-the-app)
 - [User Roles](#-user-roles)
 - [Pages & Modules](#-pages--modules)
 - [CSS Architecture](#-css-architecture)
@@ -71,66 +65,6 @@ Built on a clean **MVC architecture** with JSP views, Servlet controllers, DAO-p
 
 ---
 
-
-
-## 🚀 Getting Started
-
-
-### Database Setup
-
-**1. Start XAMPP**
-
-Open XAMPP Control Panel and start both **Apache** and **MySQL**.
-
-**2. Open phpMyAdmin**
-
-Click **Admin** next to MySQL to open phpMyAdmin in your browser.
-
-**3. Create the database**
-
-```sql
-CREATE DATABASE swiftpos_db CHARACTER SET utf8 COLLATE utf8_general_ci;
-```
-
-**4. Import the schema**
-
-- Select `swiftpos_db` in the left panel
-- Go to **Import** tab
-- Upload and run `database/pos_schema.sql`
-
-**5. *(Optional)* Load sample data**
-
-```
-Import → database/pos_sample_data.sql
-```
-
----
-
-### Running the App
-
-**1. Clone the repository**
-
-```bash
-git clone https://github.com/your-username/SwiftPOS.git
-```
-
-**2. Open in NetBeans**
-
-- `File → Open Project` → select the `SwiftPOS` folder
-
-
-**3. Build & Deploy**
-
-- Right-click project → **Clean and Build**
-- Right-click project → **Run** (deploys to Tomcat automatically)
-
-**4. Open in browser**
-
-```
-http://localhost:8080/SwiftPOS/
-```
-
----
 
 ## 👤 User Roles
 
