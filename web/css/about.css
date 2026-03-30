@@ -1,0 +1,372 @@
+/* /web/css/about.css */
+/* About Page Styles with Creative Animations */
+
+.about-page {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(245,245,255,0.99) 100%);
+    padding-bottom: 100px;
+}
+
+/* Tech Icons Background Animation */
+.tech-icons-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.1;
+    overflow: hidden;
+}
+
+.animate-float {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--primary);
+    animation: floating var(--duration, 10s) ease-in-out var(--delay, 0s) infinite alternate;
+    opacity: 0.6;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0) translateX(var(--start-pos, 0%)) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) translateX(calc(var(--start-pos, 0%) + 10%)) rotate(10deg);
+    }
+    100% {
+        transform: translateY(0) translateX(calc(var(--start-pos, 0%) + 20%)) rotate(0deg);
+    }
+}
+
+/* About Header Styles */
+.about-header {
+    text-align: center;
+    padding: 40px 0 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-header h1 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.about-header .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* About Content Container */
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* About Card Styles */
+.about-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(33, 28, 132, 0.1);
+    padding: 25px;
+    display: flex;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(77, 85, 204, 0.05) 0%, rgba(122, 115, 209, 0.03) 100%);
+    z-index: -1;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(33, 28, 132, 0.2);
+}
+
+.about-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.about-card h2 {
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.about-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 3px;
+}
+
+/* Info Grid Styles */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.info-value {
+    color: var(--text-dark);
+    text-align: right;
+}
+
+/* Skill Bars Animation */
+.skill-bars {
+    margin-top: 15px;
+}
+
+.skill-bar {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.skill-level {
+    height: 10px;
+    background: var(--bg-light);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    width: 0; /* Start at 0, will be animated */
+    transition: width 2s ease-out;
+}
+
+.skill-level::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 5px;
+}
+
+/* Team Member Styles */
+.team-members {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    background: white;
+    box-shadow: 0 5px 15px rgba(33, 28, 132, 0.1);
+}
+
+.member-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.member-info h3 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.member-info p {
+    margin: 5px 0 0;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* Typewriter Effect */
+.typewriter {
+    border-right: 2px solid var(--primary);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary); }
+}
+
+/* About Footer with Wave Animation */
+.about-footer {
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.footer-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23211C84" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23211C84" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23211C84"/></svg>');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    z-index: -1;
+    animation: wave-animation 10s linear infinite;
+}
+
+@keyframes wave-animation {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1200px; }
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content p {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--accent);
+    transform: translateY(-5px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    
+    .about-card {
+        flex-direction: column;
+    }
+    
+    .card-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .about-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Styles for sidebar logout button (if different or needs explicit definition) */
+.sidebar-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--text-color); /* Assuming --text-color is defined in style.css/dashboard.css */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar-logout-btn:hover {
+    background-color: var(--hover-bg-color); /* Assuming --hover-bg-color is defined */
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.sidebar-logout-btn i {
+    font-size: 1.1rem;
+    color: var(--icon-color); /* Assuming --icon-color is defined */
+}

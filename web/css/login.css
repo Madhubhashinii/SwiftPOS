@@ -1,0 +1,155 @@
+/* =============================
+   login.css (Login Page Only)
+============================= */
+
+/* ===== BACKGROUND ===== */
+.login-gradient-bg {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ===== LOGIN FRAME ===== */
+.login-frame {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  background: var(--bg-light);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 1;
+  position: relative;
+}
+
+/* ===== LEFT CONTENT ===== */
+.login-content {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-content h1 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.subtext {
+  color: var(--text-dark);
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.form-animate {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(77, 85, 204, 0.2);
+}
+
+.signin-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: all 0.3s;
+  animation: popIn 0.6s ease-out 0.5s both;
+}
+
+.signin-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.forgot-link {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 15px;
+  display: inline-block;
+  animation: fadeIn 0.8s 0.8s;
+}
+
+/* ===== RIGHT IMAGE COLUMN ===== */
+.illustration-container {
+  width: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.illustration-float {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  animation: rotateAndEnter 1.2s ease-out, gentleFloat 8s ease-in-out 1.2s infinite;
+  transform-origin: center;
+  clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), 0% 100%);
+  border-radius: 15px 0 15px 0;
+  transform: skew(-2deg);
+}
+
+/* ===== SLANTED LINES BACKGROUND ===== */
+.animated-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  width: 2px;
+  height: 100vh;
+  background: var(--secondary);
+  opacity: 0.3;
+  transform: rotate(45deg);
+  animation: moveLines 5s linear infinite;
+}
+
+.line-1 { left: 10%; animation-delay: 0s; }
+.line-2 { left: 50%; animation-delay: 1.5s; }
+.line-3 { left: 80%; animation-delay: 3s; }
+
+@keyframes moveLines {
+  0% { transform: translateY(-100%) rotate(45deg); }
+  100% { transform: translateY(100%) rotate(45deg); }
+}
