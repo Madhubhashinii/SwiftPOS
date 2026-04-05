@@ -70,8 +70,6 @@ SwiftPOS is a **Java EE web application** that provides a complete point-of-sale
 | **Admin** | Full access — users, products, categories, sales, reports |
 | **Cashier** | Sales module only — process transactions, print receipts |
 
-> Default admin credentials can be found in `pos_sample_data.sql`
-
 ---
 
 
