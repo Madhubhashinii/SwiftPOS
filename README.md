@@ -45,8 +45,6 @@
 
 SwiftPOS is a **Java EE web application** that provides a complete point-of-sale experience — from cashier checkout to admin-level reporting — all running through a browser with no desktop install required.
 
-Built on a clean **MVC architecture** with JSP views, Servlet controllers, DAO-pattern data access, and a MySQL backend, SwiftPOS is designed to be maintainable, extensible, and straightforward to deploy on any machine running XAMPP or a Tomcat server.
-
 ---
 
 ## ✨ Features
