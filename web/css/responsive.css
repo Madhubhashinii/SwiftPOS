@@ -1,0 +1,590 @@
+/* =============================================================
+   responsive.css  —  SwiftPOS tablet & phone layout
+   -------------------------------------------------------------
+   Loaded LAST on every page so it can override page stylesheets
+   and inline <style> blocks.
+
+   Breakpoints
+     <= 1200px  large tablet / small laptop
+     <=  992px  tablet  (sidebar becomes an icon rail)
+     <=  768px  phone   (sidebar becomes a scrollable top bar)
+     <=  480px  small phone
+
+   Presentation only — no markup, data or logic depends on this.
+   ============================================================= */
+
+/* ---------- universal overflow guards ---------- */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.main-content {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.table,
+.cart-table,
+.category-table {
+  max-width: 100%;
+}
+
+/* wrap any wide table so it scrolls sideways instead of squashing
+   its columns or pushing the whole page out */
+.card > .table,
+.card > .table-responsive,
+.table-responsive {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card > .table > thead,
+.card > .table > tbody {
+  min-width: 700px;
+}
+
+/* headings stay on one line; only cell content may wrap */
+.table th,
+.category-table th {
+  white-space: nowrap;
+}
+
+/* long words / ids / emails never blow the layout open */
+.table td,
+.stat-value,
+.summary-value,
+.activity-details h6 {
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   <= 1200px
+   ========================================================= */
+@media (max-width: 1200px) {
+  .stats-grid,
+  .summary-cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
+  }
+}
+
+/* =========================================================
+   <= 992px  — tablet: sidebar collapses to an icon rail
+   ========================================================= */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 74px !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .sidebar-brand {
+    padding: 0 8px 16px !important;
+  }
+
+  .sidebar-brand img {
+    max-width: 42px !important;
+  }
+
+  .sidebar-brand span,
+  .sidebar-nav span,
+  .sidebar-notification {
+    display: none !important;
+  }
+
+  .sidebar-nav li {
+    padding: 14px 0 !important;
+  }
+
+  .sidebar-nav a {
+    justify-content: center;
+  }
+
+  .sidebar-nav i {
+    margin-right: 0 !important;
+    font-size: 18px;
+  }
+
+  .main-content {
+    margin-left: 74px !important;
+    padding: 20px !important;
+  }
+
+  .main-content .header h2,
+  .dashboard-header h2 {
+    font-size: 1.55rem !important;
+  }
+
+  /* POS screen: product list above, cart below */
+  .pos-container {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  .pos-product-selector,
+  .pos-cart-container {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    max-height: none !important;
+  }
+
+  /* Reports: charts and filters go full width */
+  .report-filters .filter-row,
+  .filter-group {
+    flex-wrap: wrap !important;
+  }
+
+  .chart-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .chart-container canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* About page cards stack */
+  .about-grid,
+  .about-content {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================================
+   <= 768px  — phone: sidebar becomes a top bar
+   ========================================================= */
+@media (max-width: 768px) {
+  .dashboard-container {
+    display: block !important;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 8px 6px !important;
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    z-index: 900;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .sidebar-brand {
+    flex: 0 0 auto;
+    padding: 0 10px 0 6px !important;
+    border-bottom: none !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .sidebar-brand img {
+    max-width: 34px !important;
+    display: block;
+  }
+
+  .sidebar-nav {
+    display: flex !important;
+    align-items: center;
+    gap: 2px;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex: 1 1 auto;
+  }
+
+  .sidebar-nav li {
+    padding: 10px 14px !important;
+    border-radius: 10px;
+    flex: 0 0 auto;
+  }
+
+  .sidebar-nav li.active {
+    background: var(--secondary) !important;
+    border-radius: 10px;
+  }
+
+  .sidebar-nav li.active::before {
+    display: none !important;
+  }
+
+  .sidebar-nav i {
+    font-size: 17px;
+  }
+
+  .sidebar-logout,
+  .sidebar-nav .sidebar-logout {
+    margin-top: 0 !important;
+    border-top: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 14px 32px !important;
+    padding-top: 74px !important;
+  }
+
+  /* header stacks */
+  .main-content .header,
+  .dashboard-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .main-content .header h2,
+  .dashboard-header h2 {
+    font-size: 1.35rem !important;
+  }
+
+  .user-menu {
+    width: 100%;
+    justify-content: flex-start !important;
+  }
+
+  /* one column everywhere */
+  .stats-grid,
+  .summary-cards,
+  .category-grid,
+  .about-grid,
+  .about-content {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(46%, 1fr)) !important;
+  }
+
+  /* action bar: full-width controls */
+  .action-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .action-bar > * {
+    width: 100%;
+  }
+
+  .action-bar .btn,
+  .action-bar button.btn-primary {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .search-box {
+    width: 100% !important;
+  }
+
+  .search-box input {
+    width: 100% !important;
+  }
+
+  .view-options {
+    justify-content: flex-start;
+  }
+
+  /* cards get tighter padding */
+  .card,
+  .form-container,
+  .pos-product-selector,
+  .pos-cart-container {
+    padding: 18px !important;
+  }
+
+  /* tables turn into stacked cards (data-label driven) */
+  .card > .table,
+  .card > .table-responsive,
+  .table-responsive {
+    overflow-x: visible !important;
+  }
+
+  .card > .table > thead,
+  .card > .table > tbody {
+    min-width: 0 !important;
+  }
+
+  .table thead,
+  .category-table thead {
+    display: none !important;
+  }
+
+
+  .table tbody,
+  .table tr,
+  .table td,
+  .category-table tbody,
+  .category-table tr,
+  .category-table td {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .table tbody tr,
+  .category-table tbody tr {
+    margin-bottom: 14px;
+    border: 1px solid #e2e2ea;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+  }
+
+  .table tbody td,
+  .category-table tbody td {
+    text-align: right !important;
+    padding: 11px 14px 11px 45% !important;
+    position: relative;
+    border: none !important;
+    border-bottom: 1px solid #f0f0f4 !important;
+    min-height: 44px;
+  }
+
+  .table tbody td::before,
+  .category-table tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 14px;
+    top: 11px;
+    width: calc(45% - 24px);
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .table tbody td:last-child,
+  .category-table tbody td:last-child {
+    border-bottom: none !important;
+  }
+
+  .table td.actions,
+  .actions {
+    justify-content: flex-end !important;
+    padding-left: 14px !important;
+  }
+
+  .table td.actions::before {
+    display: none;
+  }
+
+  .table td.actions .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  /* forms + modals */
+  .form-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .form-actions .btn,
+  .form-actions button {
+    width: 100% !important;
+  }
+
+  .modal {
+    padding: 16px !important;
+    align-items: flex-start !important;
+    overflow-y: auto !important;
+  }
+
+  .modal-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 60px auto 20px !important;
+    padding: 20px !important;
+    max-height: calc(100vh - 90px) !important;
+    overflow-y: auto;
+  }
+
+  /* POS cart + payment rows */
+  .payment-options,
+  .cart-actions,
+  .receipt-actions,
+  .report-actions {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .payment-options .payment-btn,
+  .cart-actions .btn,
+  .receipt-actions .btn,
+  .report-actions > * {
+    flex: 1 1 45% !important;
+  }
+
+  /* dashboard recent activity */
+  .horizontal-scroll {
+    gap: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .activity-card {
+    min-width: 82% !important;
+  }
+
+  /* floating buttons stay reachable */
+  .fab,
+  .fab-add-category {
+    bottom: 18px !important;
+    right: 18px !important;
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 20px !important;
+  }
+
+  .top-logout-btn {
+    top: auto !important;
+    bottom: 18px !important;
+    left: 18px !important;
+    right: auto !important;
+    padding: 10px 14px !important;
+    font-size: 0.85rem;
+  }
+
+  /* receipt page */
+  .receipt-container,
+  .receipt-paper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* login page */
+  .login-frame {
+    flex-direction: column !important;
+    height: auto !important;
+    max-width: 460px;
+  }
+
+  .login-content,
+  .illustration-container {
+    width: 100% !important;
+  }
+
+  .login-content {
+    padding: 28px 22px !important;
+    order: 2;
+  }
+
+  .illustration-container {
+    height: 180px !important;
+    order: 1;
+  }
+
+  .illustration-float {
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   <= 480px  — small phone
+   ========================================================= */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 14px 11px 28px !important;
+    padding-top: 70px !important;
+  }
+
+  .main-content .header h2,
+  .dashboard-header h2 {
+    font-size: 1.2rem !important;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .stat-value {
+    font-size: 1.25rem !important;
+  }
+
+  .card,
+  .form-container {
+    padding: 15px !important;
+  }
+
+  .table tbody td,
+  .category-table tbody td {
+    padding-left: 42% !important;
+    font-size: 0.9rem;
+  }
+
+  .table tbody td::before,
+  .category-table tbody td::before {
+    width: calc(42% - 20px);
+    font-size: 0.74rem;
+  }
+
+  .payment-options .payment-btn,
+  .cart-actions .btn,
+  .receipt-actions .btn {
+    flex: 1 1 100% !important;
+  }
+
+  .login-content h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .activity-card {
+    min-width: 90% !important;
+  }
+}
+
+/* =========================================================
+   print — keep receipts clean on any device
+   ========================================================= */
+@media print {
+  .sidebar,
+  .animated-lines,
+  .top-logout-btn,
+  .fab,
+  .fab-add-category,
+  .receipt-actions {
+    display: none !important;
+  }
+
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+}

@@ -1,0 +1,159 @@
+/* =============================
+   style.css (Global Styles)
+============================= */
+
+/* ===== COLOR SCHEME ===== */
+:root {
+  --primary: #211C84;
+  --secondary: #4D55CC;
+  --accent: #7A73D1;
+  --bg-light: #B5A8D5;
+  --text-dark: #333;
+  --text-light: #fff;
+}
+
+/* ===== BASE STYLES ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  70% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes rotateAndEnter {
+  0% { transform: rotate(-15deg) scale(0.9); opacity: 0; }
+  30% { transform: rotate(8deg) scale(1.05); opacity: 1; }
+  60% { transform: rotate(-3deg) scale(1); }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(0.5deg); }
+}
+
+/* ===== ANIMATION CLASSES ===== */
+.fade-in { animation: fadeIn 0.8s ease-out; }
+.slide-down { animation: slideDown 0.6s ease-out; }
+.slide-up { animation: slideUp 0.6s ease-out; }
+.fade-in-delay { animation: fadeIn 1s ease-out 0.3s both; }
+.pulse-hover:hover { animation: pulse 1s infinite; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .login-frame {
+    flex-direction: column;
+    height: auto;
+  }
+  .login-content,
+  .illustration-container {
+    width: 100%;
+  }
+  .illustration-container {
+    height: 200px;
+  }
+}
+
+/* ===== GLOBAL HOVER STYLES ===== */
+.google-login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+
+/* ===== SLANTED LINES BACKGROUND ===== */
+.animated-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  width: 2px;
+  height: 100vh;
+  background: var(--secondary);
+  opacity: 0.3;
+  transform: rotate(45deg);
+  animation: moveLines 5s linear infinite;
+}
+
+.line-1 { left: 10%; animation-delay: 0s; }
+.line-2 { left: 50%; animation-delay: 1.5s; }
+.line-3 { left: 80%; animation-delay: 3s; }
+
+@keyframes moveLines {
+  0% { transform: translateY(-100%) rotate(45deg); }
+  100% { transform: translateY(100%) rotate(45deg); }
+}
+
+.stat-card:hover {
+  background-color:  #B5A8D5; /* Light hover color */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+
+:root {
+  --primary: #211C84;
+  --secondary: #4D55CC;
+  --accent: #7A73D1;
+  --bg-light: #B5A8D5;
+  --text-dark: #333;
+  --text-light: #fff;
+  --border-color: #e0e0e0; /* Add this line */
+  /* You might also want to add: */
+  --border-radius: 8px; /* Used in form.css and elsewhere */
+  --primary-color: #211C84; /* Used in form.css */
+  --primary-rgb: 33, 28, 132; /* Used in form.css */
+  --input-bg-color: #fdfdfd; /* Used in form.css */
+  --danger-color: #dc3545; /* Used in form.css */
+  --success-color: #28a745; /* Used in form.css */
+  --warning-color: #ffc107; /* Used in form.css */
+  --hover-bg-color: rgba(0, 0, 0, 0.05); /* Used in form.css */
+  --table-stripe-color: #f9f9f9; /* Used in form.css */
+  --text-color-dark: #333; /* Used in form.css */
+  --border-color-light: #f0f0f0; /* Used in form.css */
+}

@@ -1,0 +1,470 @@
+
+
+/* --- Main Content --- */
+.main-content {
+    /* flex-grow and margin-left are handled by dashboard.css */
+    /* flex-grow: 1; */
+    /* margin-left: 250px; */
+    padding: 30px; /* Slightly more padding for main content */
+    background-color:#7A73D1 ; /* Keeping this background-color as it matches your desired look */
+    transition: all 0.3s ease;
+}
+
+/* --- Header Section (User Management Header) --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.header h2 {
+    color: var(--primary); /* Uses color from style.css */
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    animation: slideInRight 0.8s ease-out forwards; /* Uses animation from style.css */
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent); /* Uses color from style.css */
+    color: var(--secondary); /* Text color for avatar as per your dashboard.css's user-avatar color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: popIn 0.5s ease-out forwards; /* Uses animation from style.css */
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background-color: #dc3545; /* Specific danger color */
+    color: var(--text-light); /* Uses color from style.css */
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: fadeIn 0.8s ease-out 0.2s backwards; /* Uses animation from style.css */
+}
+
+.logout-btn i {
+    font-size: 1rem;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker danger on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* --- Action Bar (Add User, Search) --- */
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn-primary {
+    background-color: var(--primary); /* Uses color from style.css */
+    color: var(--text-light); /* Uses color from style.css */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    animation: popIn 0.6s ease-out 0.3s backwards; /* Uses animation from style.css */
+}
+
+.btn-primary i {
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary); /* Uses color from style.css */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background-color: var(--text-light); /* Uses color from style.css */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    animation: fadeIn 0.8s ease-out 0.4s backwards; /* Uses animation from style.css */
+}
+
+.search-box input {
+    border: none;
+    padding: 10px 15px;
+    padding-right: 45px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--secondary); /* Uses color from style.css */
+    box-shadow: 0 0 0 3px rgba(77, 85, 204, 0.2); /* Specific rgba for focus ring, derived from secondary */
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: var(--primary); /* Uses color from style.css */
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.search-btn:hover {
+    color: var(--secondary); /* Uses color from style.css */
+}
+
+/* --- Card Styles (for forms and tables) --- */
+.card {
+    background-color: var(--text-light); /* Uses color from style.css */
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 30px;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease-out forwards; /* Uses animation from style.2ss */
+}
+
+.card:nth-of-type(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
+
+/* --- Form Container (Add User Form) --- */
+.form-container {
+    margin-top: 20px;
+}
+
+.form-container h3 {
+    color: var(--primary); /* Uses color from style.css */
+    margin-bottom: 25px;
+    font-size: 1.7rem;
+    border-bottom: 1px dashed #e9ecef;
+    padding-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dark); /* Uses color from style.css */
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary); /* Uses color from style.css */
+    box-shadow: 0 0 0 3px rgba(77, 85, 204, 0.2); /* Specific rgba for focus ring, derived from secondary */
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary); /* Uses color from style.css */
+    border: 2px solid var(--primary); /* Uses color from style.css */
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary); /* Uses color from style.css */
+    color: var(--text-light); /* Uses color from style.css */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Table Styles --- */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+.table thead th {
+    background-color: var(--primary); /* Uses color from style.css */
+    color: var(--text-light); /* Uses color from style.css */
+    text-align: left;
+    padding: 15px 20px;
+    font-weight: 600;
+}
+
+.table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+.table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Light background for even rows */
+}
+
+.table tbody tr:hover {
+    background-color: #e9f5ff; /* Light blue hover */
+}
+
+.table tbody td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #dee2e6;
+    color: var(--text-dark); /* Uses color from style.css */
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+/* --- Badges for Roles --- */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-light); /* Uses color from style.css */
+    display: inline-block;
+}
+
+.badge-primary {
+    background-color: var(--secondary); /* Uses color from style.css */
+}
+
+.badge-success {
+    background-color: #28a745; /* Standard green */
+}
+
+/* --- Action Buttons in Table --- */
+.actions button {
+    margin-right: 8px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.actions .btn-sm-outline {
+    background-color: transparent;
+    border: 1px solid var(--accent); /* Uses color from style.css */
+    color: var(--accent); /* Uses color from style.css */
+}
+.actions .btn-sm-outline:hover {
+    background-color: var(--accent); /* Uses color from style.css */
+    color: var(--text-light); /* Uses color from style.css */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.actions .btn-danger {
+    background-color: #dc3545; /* Specific danger color */
+    color: var(--text-light); /* Uses color from style.css */
+    border: 1px solid #dc3545;
+}
+.actions .btn-danger:hover {
+    background-color: #c82333; /* Darker danger on hover */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
+
+/* --- Modal Styles (for Edit User) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out forwards; /* Uses animation from style.css */
+}
+
+.modal-content {
+    background-color: var(--text-light); /* Uses color from style.css */
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Uses animation from style.css */
+}
+
+.modal-content h3 {
+    color: var(--primary); /* Uses color from style.css */
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.modal .close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: var(--primary); /* Uses color from style.css */
+    text-decoration: none;
+}
+
+/* --- Responsive Adjustments (Content-specific, others handled by dashboard.css) --- */
+@media (max-width: 992px) {
+    /* Removed sidebar/container-related responsive rules */
+    .main-content {
+        /* margin-left: 70px;  - Handled by dashboard.css */
+        padding: 20px;
+        background-color: #7A73D1; /* Keeping for consistency with desired visual */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Removed overall layout responsive rules for container/sidebar */
+    .main-content {
+        /* margin-left: 0; - Handled by dashboard.css */
+        padding-top: 80px; /* Offset for fixed top sidebar, likely handled by dashboard.css or main HTML structure */
+    }
+    .action-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px; /* Adjust gap for stacked items */
+    }
+    .search-box {
+        width: 100%; /* Make search box full width */
+    }
+    .search-box input {
+        width: 100%; /* Make search input full width */
+    }
+
+    /* Table responsive behavior (from previous version, good for mobile) */
+    .table thead {
+        display: none;
+    }
+    .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .table tbody td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #eee;
+    }
+    .table tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: var(--primary); /* Uses color from style.css */
+    }
+    .table tbody td:last-child {
+        border-bottom: none;
+    }
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,194 @@
+/* =============================================================
+   animations.css  —  SwiftPOS unified motion system
+   -------------------------------------------------------------
+   Loaded LAST-BUT-ONE on every page so it can normalise motion
+   coming from page stylesheets, inline <style> blocks and the
+   Animate.css CDN library.
+
+   Why this exists: some pages animated instantly, some had no
+   animation at all, and the Categories sidebar took ~7 seconds
+   to finish because of animate__delay-7s. Everything now shares
+   one speed, one easing and one small stagger.
+
+   Presentation only — nothing here changes behaviour or data.
+   ============================================================= */
+
+:root {
+  --anim-fast: 0.2s;
+  --anim-base: 0.45s;
+  --anim-slow: 0.6s;
+  --anim-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --anim-stagger: 0.06s;
+}
+
+/* ---------- Animate.css normalisation ---------- */
+/* Global speed for every animate.css class on every page. */
+.animate__animated {
+  --animate-duration: var(--anim-base);
+  --animate-delay: var(--anim-stagger);
+  animation-duration: var(--anim-base);
+  animation-timing-function: var(--anim-ease);
+  animation-fill-mode: both;
+}
+
+/* Kill the long 1s..7s delay classes — they made pages appear to
+   load in slow motion. Replaced by a subtle uniform stagger. */
+.animate__delay-1s,
+.animate__delay-2s,
+.animate__delay-3s,
+.animate__delay-4s,
+.animate__delay-5s {
+  animation-delay: 0.12s !important;
+  --animate-delay: 0.12s !important;
+}
+
+/* The sidebar must never stagger — it is chrome, not content. */
+.sidebar,
+.sidebar *,
+.sidebar .animate__animated,
+.sidebar [class*="animate__delay-"] {
+  animation-delay: 0s !important;
+  --animate-delay: 0s !important;
+  animation-duration: var(--anim-base) !important;
+  --animate-duration: var(--anim-base) !important;
+}
+
+/* Any leftover delay utility anywhere else is capped. */
+[class*="animate__delay-"] {
+  animation-delay: 0.12s !important;
+}
+
+.animate__slow,
+.animate__slower,
+.animate__fast,
+.animate__faster {
+  animation-duration: var(--anim-base) !important;
+  --animate-duration: var(--anim-base) !important;
+}
+
+/* ---------- Shared entrance keyframes ---------- */
+@keyframes swiftFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes swiftFadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes swiftFadeInDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes swiftFadeInLeft {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes swiftPopIn {
+  0%   { opacity: 0; transform: scale(0.94); }
+  70%  { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Consistent page entrance for every screen ---------- */
+.sidebar {
+  animation: swiftFadeInLeft var(--anim-base) var(--anim-ease) both;
+}
+
+.main-content {
+  animation: swiftFadeIn var(--anim-base) var(--anim-ease) both;
+}
+
+.main-content > .header,
+.main-content > .dashboard-header,
+.main-content > .about-header {
+  animation: swiftFadeInDown var(--anim-base) var(--anim-ease) both;
+}
+
+.main-content .action-bar,
+.main-content .stats-grid,
+.main-content .quick-actions,
+.main-content .summary-cards,
+.main-content .pos-container,
+.main-content .receipt-container,
+.main-content > .card,
+.main-content .view-container > .card {
+  animation: swiftFadeInUp var(--anim-slow) var(--anim-ease) both;
+  animation-delay: 0.08s;
+}
+
+/* Small, even stagger for grid/card children — same on all pages. */
+.stats-grid > *:nth-child(1),
+.quick-actions > *:nth-child(1) { animation: swiftFadeInUp var(--anim-base) var(--anim-ease) both; animation-delay: 0.05s; }
+.stats-grid > *:nth-child(2),
+.quick-actions > *:nth-child(2) { animation: swiftFadeInUp var(--anim-base) var(--anim-ease) both; animation-delay: 0.11s; }
+.stats-grid > *:nth-child(3),
+.quick-actions > *:nth-child(3) { animation: swiftFadeInUp var(--anim-base) var(--anim-ease) both; animation-delay: 0.17s; }
+.stats-grid > *:nth-child(4),
+.quick-actions > *:nth-child(4) { animation: swiftFadeInUp var(--anim-base) var(--anim-ease) both; animation-delay: 0.23s; }
+.stats-grid > *:nth-child(n + 5),
+.quick-actions > *:nth-child(n + 5) { animation: swiftFadeInUp var(--anim-base) var(--anim-ease) both; animation-delay: 0.28s; }
+
+/* Table rows fade in together instead of one long cascade. */
+.table tbody tr,
+.category-table tbody tr {
+  animation: swiftFadeIn var(--anim-base) var(--anim-ease) both;
+  animation-delay: 0.1s !important;
+}
+
+/* Modals always open at the same speed. */
+.modal-content {
+  animation: swiftPopIn var(--anim-fast) var(--anim-ease) both;
+}
+
+/* ---------- Consistent hover feel ---------- */
+.stat-card,
+.action-btn,
+.activity-card,
+.product-item,
+.summary-card,
+.about-card,
+.category-grid-item,
+.payment-btn,
+.view-option,
+.btn,
+.fab,
+.fab-add-category {
+  transition: transform var(--anim-fast) var(--anim-ease),
+    box-shadow var(--anim-fast) var(--anim-ease),
+    background-color var(--anim-fast) var(--anim-ease),
+    color var(--anim-fast) var(--anim-ease);
+  will-change: transform;
+}
+
+.sidebar-nav li,
+.sidebar-nav a {
+  transition: background-color var(--anim-fast) var(--anim-ease),
+    color var(--anim-fast) var(--anim-ease),
+    padding-left var(--anim-fast) var(--anim-ease);
+}
+
+.sidebar-nav li:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* The background line effect ran at different speeds per page. */
+.line {
+  animation: moveLines 12s linear infinite !important;
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
